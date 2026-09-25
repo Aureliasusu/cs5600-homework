@@ -1,0 +1,19 @@
+#!/bin/bash
+
+for seed in 1 2 3
+do
+    echo "================================"
+    echo "Running MLFQ with seed $seed"
+    echo "================================"
+
+    python3 ~/ostep-homework/cpu-sched-mlfq/mlfq.py \
+        -s $seed \
+        -j 2 \
+        -n 2 \
+        -m 10 \
+        -M 0 \
+        -q 2 \
+        -c
+
+    echo
+done

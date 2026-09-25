@@ -1,0 +1,76 @@
+#!/bin/bash
+
+for example in 1 2 3 4 5 6
+do
+    echo "======================================"
+    echo "Running Chapter 8 Example $example"
+    echo "======================================"
+
+    if [ "$example" -eq 1 ]; then
+        echo "Example 1: Single long-running job"
+
+        python3 ~/ostep-homework/cpu-sched-mlfq/mlfq.py \
+            -n 3 -q 10 \
+            -l 0,200,0 \
+            -c
+
+    elif [ "$example" -eq 2 ]; then
+        echo "Example 2: Short job arrives later"
+
+        python3 ~/ostep-homework/cpu-sched-mlfq/mlfq.py \
+            -n 3 -q 10 \
+            -l 0,200,0:100,20,0 \
+            -c
+
+    elif [ "$example" -eq 3 ]; then
+        echo "Example 3: Interactive job with I/O"
+
+        python3 ~/ostep-homework/cpu-sched-mlfq/mlfq.py \
+            -n 3 -q 10 \
+            -l 0,200,0:0,30,1 \
+            -S -c
+
+    elif [ "$example" -eq 4 ]; then
+        echo "Example 4A: Without priority boost"
+
+        python3 ~/ostep-homework/cpu-sched-mlfq/mlfq.py \
+            -n 3 -q 10 \
+            -l 0,200,0:20,100,5:20,100,5 \
+            -c
+
+        echo
+        echo "Example 4B: With priority boost every 100"
+
+        python3 ~/ostep-homework/cpu-sched-mlfq/mlfq.py \
+            -n 3 -q 10 \
+            -l 0,200,0:20,100,5:20,100,5 \
+            -B 100 -c
+
+    elif [ "$example" -eq 5 ]; then
+        echo "Example 5A: Gaming with old Rules 4a/4b"
+
+        python3 ~/ostep-homework/cpu-sched-mlfq/mlfq.py \
+            -n 3 -q 10 \
+            -l 0,200,0:0,100,9 \
+            -S -c
+
+        echo
+        echo "Example 5B: Better accounting"
+
+        python3 ~/ostep-homework/cpu-sched-mlfq/mlfq.py \
+            -n 3 -q 10 \
+            -l 0,200,0:0,100,9 \
+            -c
+
+    elif [ "$example" -eq 6 ]; then
+        echo "Example 6: Lower priority, longer quantum"
+
+        python3 ~/ostep-homework/cpu-sched-mlfq/mlfq.py \
+            -n 3 \
+            -Q 10,20,40 \
+            -l 0,100,0:0,100,0 \
+            -c
+    fi
+
+    echo
+done
