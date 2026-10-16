@@ -1,0 +1,17 @@
+Machine: Ubuntu VM
+CPU pinning: CPU 0 using taskset
+Trials: 100000
+
+pages=1 trials=100000 time_per_access=3.800 ns
+pages=2 trials=100000 time_per_access=2.505 ns
+pages=4 trials=100000 time_per_access=1.522 ns
+pages=8 trials=100000 time_per_access=0.848 ns
+pages=16 trials=100000 time_per_access=1.312 ns
+pages=32 trials=100000 time_per_access=1.052 ns
+pages=64 trials=100000 time_per_access=9.437 ns
+pages=128 trials=100000 time_per_access=9.996 ns
+pages=256 trials=100000 time_per_access=9.471 ns
+pages=512 trials=100000 time_per_access=9.740 ns
+pages=1024 trials=100000 time_per_access=9.663 ns
+pages=2048 trials=100000 time_per_access=8.898 ns
+pages=4096 trials=100000 time_per_access=10.170 ns
