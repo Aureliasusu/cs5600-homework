@@ -1,0 +1,18 @@
+Machine: MacBook Air M2
+Platform: macOS
+CPU pinning: strict CPU pinning not available on macOS
+Trials: 100000
+
+pages=1 trials=100000 time_per_access=2.190 ns
+pages=2 trials=100000 time_per_access=3.605 ns
+pages=4 trials=100000 time_per_access=1.808 ns
+pages=8 trials=100000 time_per_access=1.034 ns
+pages=16 trials=100000 time_per_access=5.896 ns
+pages=32 trials=100000 time_per_access=9.004 ns
+pages=64 trials=100000 time_per_access=7.309 ns
+pages=128 trials=100000 time_per_access=7.171 ns
+pages=256 trials=100000 time_per_access=7.074 ns
+pages=512 trials=100000 time_per_access=7.397 ns
+pages=1024 trials=100000 time_per_access=6.751 ns
+pages=2048 trials=100000 time_per_access=6.590 ns
+pages=4096 trials=100000 time_per_access=6.818 ns
